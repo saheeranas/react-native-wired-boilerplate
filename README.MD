@@ -4,7 +4,7 @@
   Author: saheeranas
   -->
 
-# React Native Redux boilerplate with Redux Toolkit (RTK) and TypeScript.
+# React Native boilerplate with TypeScript and React Native Paper
 
 A React Native starter template.
 
