@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
-import org.apache.tools.ant.taskdefs.condition.Os
+import org.apache.tools.ant.taskdefs.condition.Os 
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -76,7 +76,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
  *   // supply additional arguments to the packager
  *   extraPackagerArgs: []
  * ]
- */
+ */ 
 
 project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing

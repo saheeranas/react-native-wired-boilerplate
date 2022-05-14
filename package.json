@@ -14,9 +14,15 @@
     "adb-log": "adb logcat *:E"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.3.1",
+    "@react-navigation/material-bottom-tabs": "^6.2.1",
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.2",
     "react": "17.0.2",
     "react-native": "0.68.2",
     "react-native-paper": "^4.12.1",
+    "react-native-safe-area-context": "^4.2.5",
+    "react-native-screens": "^3.13.1",
     "react-native-vector-icons": "^9.1.0"
   },
   "devDependencies": {
@@ -25,6 +31,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.67.3",
+    "@types/react-native-vector-icons": "^6.4.10",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",

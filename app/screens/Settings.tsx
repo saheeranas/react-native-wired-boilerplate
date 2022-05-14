@@ -1,0 +1,32 @@
+import * as React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {useTheme} from 'react-native-paper';
+
+import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
+
+const Settings = () => {
+  const {colors} = useTheme();
+  return (
+    <SafeAreaView
+      style={[styles.container, {backgroundColor: colors.background}]}>
+      <FocusAwareStatusBar
+        barStyle="light-content"
+        backgroundColor={colors.accent}
+      />
+      <View>
+        <Text>Settings</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default Settings;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
