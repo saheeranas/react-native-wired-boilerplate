@@ -69,7 +69,7 @@ const SignIn = () => {
         backgroundColor={colors.accent}
       />
       <Surface style={styles.surface}>
-        <Title>SignIn</Title>
+        <Title style={styles.title}>SignIn</Title>
         <Formik
           initialValues={initialValues}
           validationSchema={LoginSchema}
@@ -140,6 +140,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 1,
+  },
+  title: {
+    marginBottom: 24,
   },
   input: {
     width: 250,

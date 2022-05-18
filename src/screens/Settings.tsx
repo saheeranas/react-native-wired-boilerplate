@@ -1,12 +1,14 @@
 import * as React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useTheme} from 'react-native-paper';
+import {useTheme, Button} from 'react-native-paper';
+import {useAuth} from '../hooks/AuthProvider';
 
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 
 const Settings = () => {
   const {colors} = useTheme();
+  const {signout} = useAuth();
   return (
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
@@ -15,7 +17,9 @@ const Settings = () => {
         backgroundColor={colors.accent}
       />
       <View>
-        <Text>Settings</Text>
+        <Button mode="contained" onPress={signout}>
+          Signout
+        </Button>
       </View>
     </SafeAreaView>
   );
