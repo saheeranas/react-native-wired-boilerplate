@@ -1,24 +1,32 @@
-import {getSecureValue, setSecureValue} from './keychain';
+import {getSecureValue, setSecureValue, removeSecureValue} from './keychain';
 import {updateAxiosHeaders} from '../services/request';
 
+// Cache variable for storing token for easy access
 const TOKEN_CACHE = {access_token: ''};
 
+/**
+ * setTokenCache()
+ * - set access token in cache dictionary
+ * - update token in Axios instance
+ */
 const setTokenCache = token => {
   TOKEN_CACHE.access_token = token;
   updateAxiosHeaders();
 };
 
-export const updateTokenCacheFromLocal = () => {
-  getSecureValue('access_token')
+/**
+ * updateTokenCacheFromLocal()
+ * - get access token from secure storage
+ * - update the token in cache
+ */
+const updateTokenCacheFromLocal = () => {
+  return getSecureValue('access_token')
     .then(token => {
-      console.log('Got from storage');
-      console.log(token);
       setTokenCache(token);
+      return token;
     })
     .catch(err => {
-      console.log('No token Found');
       console.log(err);
-      // return err;
     });
 };
 
@@ -29,37 +37,54 @@ export const updateTokenCacheFromLocal = () => {
  * - Else get from keychain, set in cache then return token
  * - Do not return error. Handle error here itself
  */
-export const getToken = () => {
+export const getToken = async () => {
   console.log('called');
-  return TOKEN_CACHE.access_token;
+  if (TOKEN_CACHE.access_token !== '') {
+    return Promise.resolve(TOKEN_CACHE.access_token);
+  } else {
+    let token = await updateTokenCacheFromLocal();
+    return Promise.resolve(token);
+  }
 };
 
 /**
  * setToken()
  * set ACCESS TOKEN, REFRESH TOKEN to secure storage
- * -
+ * set access token to cache
  */
 export const setToken = async (access_token, refresh_token) => {
-  // let promises = [
-  //   setSecureValue('access_token', access_token),
-  //   setSecureValue('refresh_token', refresh_token),
-  // ];
-  setSecureValue('access_token', access_token)
-    .then(res => {
-      // console.log(res);
+  let promises = [
+    setSecureValue('access_token', access_token),
+    setSecureValue('refresh_token', refresh_token),
+  ];
+  Promise.all(promises)
+    .then(results => {
       setTokenCache(access_token);
     })
-    .catch(err => console.log(err));
-  // Promise.allSettled(promises)
-  //   .then(results => {
-  //     TOKEN_CACHE.access_token = access_token;
-  //     console.log(results);
-  //   })
-  //   .catch(err => {
-  //     console.log('~~~~Set token catch~~~~');
-  //     console.log(err);
-  //     // return err;
-  //   });
+    .catch(err => {
+      // console.log('~~~~Set token catch~~~~');
+      console.log(err);
+      // return err;
+    });
+};
+
+/**
+ * removeTokens()
+ * Delete all tokens
+ */
+export const removeTokens = () => {
+  let promises = [
+    removeSecureValue('access_token'),
+    removeSecureValue('refresh_token'),
+  ];
+  Promise.all(promises)
+    .then(results => {
+      setTokenCache('');
+      updateAxiosHeaders();
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 /**

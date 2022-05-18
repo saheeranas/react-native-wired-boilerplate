@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useAuth} from './hooks/AuthProvider';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,11 +23,11 @@ const settingsIcon = ({color}: {focused: boolean; color: string}) => (
 );
 
 export default function Navigation() {
-  const isLogined = false;
+  const {user} = useAuth();
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        {!isLogined ? (
+        {!user.access_token ? (
           <OutsideStack />
         ) : (
           <Tab.Navigator>

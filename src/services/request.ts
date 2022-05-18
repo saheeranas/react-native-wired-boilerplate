@@ -10,11 +10,11 @@ const request = axios.create({
 });
 
 export const updateAxiosHeaders = () => {
-  let token = getToken();
-
-  request.defaults.headers.common['Authorization'] = token
-    ? `Bearer ${token}`
-    : '';
+  getToken()
+    .then(token => {
+      request.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    })
+    .catch(e => console.log(e));
 };
 
 export default request;

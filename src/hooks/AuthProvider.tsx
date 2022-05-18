@@ -1,18 +1,18 @@
 import * as React from 'react';
-import {updateTokenCacheFromLocal} from '../utils/token';
-
-updateTokenCacheFromLocal();
+import {getToken, setToken, removeTokens} from '../utils/token';
 
 interface UserType {
   id: string;
   name: string;
   email: string;
-  token: string;
+  access_token: string;
+  refresh_token: string;
 }
 
 interface AuthContextType {
   user: UserType;
-  setUser: (value: UserType) => void;
+  signin: (value: UserType) => void;
+  signout: () => void;
 }
 
 interface AuthProviderProps {
@@ -23,15 +23,42 @@ const initialState = {
   id: '',
   name: '',
   email: '',
-  token: '',
+  access_token: '',
+  refresh_token: '',
 };
 
 const AuthContext = React.createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
   const [user, setUser] = React.useState(initialState);
+
+  React.useEffect(() => {
+    getToken()
+      .then(token => {
+        if (token) {
+          setUser(prev => {
+            return {
+              ...prev,
+              access_token: token,
+            };
+          });
+        }
+      })
+      .catch(e => console.log(e));
+  }, []);
+
+  const signin = (newUser: UserType) => {
+    setUser(newUser);
+    setToken(newUser.access_token, newUser.refresh_token);
+  };
+
+  const signout = () => {
+    setUser(initialState);
+    removeTokens();
+  };
+
   return (
-    <AuthContext.Provider value={{user, setUser}}>
+    <AuthContext.Provider value={{user, signin, signout}}>
       {children}
     </AuthContext.Provider>
   );

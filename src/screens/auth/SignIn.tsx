@@ -11,8 +11,7 @@ import {
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
-import {login, getUsers} from '../../services/api';
-import {setToken, getToken} from '../../utils/token';
+import {login} from '../../services/api';
 import {useAuth} from '../../hooks/AuthProvider';
 import FocusAwareStatusBar from '../../components/FocusAwareStatusBar';
 import RoundedButton from '../../components/RoundedButton';
@@ -34,7 +33,7 @@ const LoginSchema = Yup.object().shape({
 
 const SignIn = () => {
   const {colors} = useTheme();
-  const {user, setUser} = useAuth();
+  const {signin} = useAuth();
 
   const handleLogin = (values: ValuesType, {setErrors}: any) => {
     // Add grant_type value to obj
@@ -44,13 +43,13 @@ const SignIn = () => {
       .then(res => {
         if (res.data?.user?.access_token) {
           const {id, name, email, access_token, refresh_token} = res.data.user;
-          setUser({
+          signin({
             id,
             name,
             email,
-            token: access_token,
+            access_token,
+            refresh_token,
           });
-          setToken(access_token, refresh_token);
         }
       })
       .catch(e => {
@@ -60,21 +59,6 @@ const SignIn = () => {
           console.log(e);
         }
       });
-  };
-
-  console.log(user);
-
-  const handleGetToken = () => {
-    // console.log('handleGetToken: ');
-    let token = getToken();
-    console.log(token);
-    // console.log('End handleGetToken');
-  };
-
-  const fetchUsers = () => {
-    getUsers()
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
   };
 
   return (
@@ -135,12 +119,6 @@ const SignIn = () => {
             </View>
           )}
         </Formik>
-        <RoundedButton mode="contained" onPress={handleGetToken}>
-          Get Token
-        </RoundedButton>
-        <RoundedButton mode="contained" onPress={fetchUsers}>
-          Fetch Users
-        </RoundedButton>
       </Surface>
     </SafeAreaView>
   );
