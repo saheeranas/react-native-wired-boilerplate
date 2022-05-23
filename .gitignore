@@ -62,3 +62,4 @@ buck-out/
 
 # Build
 android/app/src/main/assets/index.android.bundle 
+android/gradle-local.properties
