@@ -39,7 +39,7 @@ const SignIn = () => {
     // Add grant_type value to obj
     let reqObj: any = Object.assign({}, values, {grant_type: 'password'});
     // Service request
-    login(new URLSearchParams(reqObj))
+    login(reqObj)
       .then(res => {
         if (res.data?.user?.access_token) {
           const {id, name, email, access_token, refresh_token} = res.data.user;
