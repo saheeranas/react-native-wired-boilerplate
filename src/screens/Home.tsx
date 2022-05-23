@@ -9,7 +9,7 @@ import {getUsers} from '../services/api';
 
 const Home = () => {
   const {colors} = useTheme();
-  const {data} = useQuery('users', getUsers);
+  const {data, isLoading} = useQuery('users', getUsers);
 
   const renderItem = ({item}) => (
     <List.Item
@@ -34,10 +34,11 @@ const Home = () => {
             data={data.data}
             renderItem={renderItem}
             keyExtractor={item => item.id}
+            contentContainerStyle={styles.contentContainer}
           />
         ) : (
-          <View>
-            <Text>No Users found</Text>
+          <View style={styles.statusMsg}>
+            {isLoading ? <Text>Loading</Text> : <Text>No Users found</Text>}
           </View>
         )}
       </View>
@@ -50,5 +51,13 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  contentContainer: {
+    paddingBottom: 50,
+  },
+  statusMsg: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

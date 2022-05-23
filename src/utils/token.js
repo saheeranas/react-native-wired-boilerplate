@@ -38,7 +38,6 @@ const updateTokenCacheFromLocal = () => {
  * - Do not return error. Handle error here itself
  */
 export const getToken = async () => {
-  console.log('called');
   if (TOKEN_CACHE.access_token !== '') {
     return Promise.resolve(TOKEN_CACHE.access_token);
   } else {
