@@ -9,7 +9,7 @@
 A React Native starter template.
 
 <kbd>
-  <img src="demo/assets/ react-native-wired-boilerplate.png?raw=true">
+  <img src="demo/assets/react-native-wired-boilerplate.png?raw=true">
 </kbd>
 
 ## Features
