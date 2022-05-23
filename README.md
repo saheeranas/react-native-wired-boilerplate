@@ -16,12 +16,18 @@ A React Native starter template.
 
 - UI Library with React Native Paper
 - Navigation setup
+- AuthProvider wired
+- Services configured
 
 ## Dependencies
 
 - React Native **v0.68.2**
 - TypeScript
 - React Navigation v6
+- React Query
+- React Native Paper
+- Axios
+- Formik
 - React Native Vector Icons
 
 ## Installation
