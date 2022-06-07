@@ -21,8 +21,7 @@ const Home = () => {
   );
 
   return (
-    <SafeAreaView
-      style={[styles.container, {backgroundColor: colors.background}]}>
+    <SafeAreaView style={[styles.container, {backgroundColor: colors.surface}]}>
       <FocusAwareStatusBar
         barStyle="dark-content"
         backgroundColor={colors.accent}

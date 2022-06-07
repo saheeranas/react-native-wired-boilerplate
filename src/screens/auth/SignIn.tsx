@@ -62,8 +62,7 @@ const SignIn = () => {
   };
 
   return (
-    <SafeAreaView
-      style={[styles.container, {backgroundColor: colors.background}]}>
+    <SafeAreaView style={[styles.container, {backgroundColor: colors.surface}]}>
       <FocusAwareStatusBar
         barStyle="light-content"
         backgroundColor={colors.accent}
@@ -84,6 +83,7 @@ const SignIn = () => {
           }) => (
             <View>
               <TextInput
+                mode="outlined"
                 label="Username"
                 placeholder="Username/Email"
                 onChangeText={handleChange('username')}
@@ -99,6 +99,7 @@ const SignIn = () => {
                 {errors.username}
               </HelperText>
               <TextInput
+                mode="outlined"
                 label="Password"
                 placeholder="Password"
                 onChangeText={handleChange('password')}
@@ -129,12 +130,9 @@ export default SignIn;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   surface: {
-    width: '90%',
-    // height: '100%',
+    flex: 1,
     paddingHorizontal: 8,
     paddingVertical: 16,
     alignItems: 'center',
