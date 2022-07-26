@@ -26,7 +26,7 @@ const updateTokenCacheFromLocal = () => {
       return token;
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
     });
 };
 
@@ -62,7 +62,7 @@ export const setToken = async (access_token, refresh_token) => {
     })
     .catch(err => {
       // console.log('~~~~Set token catch~~~~');
-      console.log(err);
+      // console.log(err);
       // return err;
     });
 };
@@ -82,7 +82,7 @@ export const removeTokens = () => {
       updateAxiosHeaders();
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
     });
 };
 

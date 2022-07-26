@@ -67,3 +67,6 @@ android/app/src/main/assets/index.android.bundle
 
 # Gradle 
 android/gradle-local.properties
+
+# Jest
+.jest/
