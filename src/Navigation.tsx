@@ -30,7 +30,7 @@ export default function Navigation() {
         {!user.access_token ? (
           <OutsideStack />
         ) : (
-          <Tab.Navigator>
+          <Tab.Navigator barStyle={{backgroundColor: '#f2f0e0'}}>
             <Tab.Screen
               name="Home"
               component={Home}
