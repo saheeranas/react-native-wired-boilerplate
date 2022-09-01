@@ -21,11 +21,11 @@ A React Native starter template.
 
 ## Dependencies
 
-- React Native **v0.69.1**
+- React Native **v0.69.5**
 - TypeScript
 - React Navigation v6
 - React Query
-- React Native Paper
+- React Native Paper v4
 - Axios
 - Formik
 - React Native Vector Icons
