@@ -20,7 +20,7 @@ const Settings = () => {
   return (
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
-      <FocusAwareStatusBar barStyle="light-content" backgroundColor="#f2f0e0" />
+      <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#f2f0e0" />
       <Surface style={{backgroundColor: colors.surface}}>
         <View style={styles.menuWrp}>
           <Avatar.Text size={64} label="XD" />
