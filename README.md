@@ -21,7 +21,7 @@ A React Native starter template.
 
 ## Dependencies
 
-- React Native **v0.69.5**
+- React Native **v0.70.0**
 - TypeScript
 - React Navigation v6
 - React Query
