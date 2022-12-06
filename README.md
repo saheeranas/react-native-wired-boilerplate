@@ -25,7 +25,7 @@ A React Native starter template.
 - TypeScript
 - React Navigation v6
 - React Query
-- React Native Paper v4
+- React Native Paper v5
 - Axios
 - Formik
 - React Native Vector Icons
