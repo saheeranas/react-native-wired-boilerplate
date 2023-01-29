@@ -4,7 +4,7 @@
   Author: saheeranas
   -->
 
-# React Native boilerplate with TypeScript and React Native Paper
+# React Native boilerplate with TypeScript, React Native Paper and React Query
 
 A React Native starter template.
 
@@ -21,7 +21,7 @@ A React Native starter template.
 
 ## Dependencies
 
-- React Native **v0.70.6**
+- React Native **v0.71.1**
 - TypeScript
 - React Navigation v6
 - React Query
