@@ -1,22 +1,28 @@
 import * as React from 'react';
 import {StyleSheet, FlatList, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useTheme, List, Text} from 'react-native-paper';
+import {useTheme, List, ListIconProps} from 'react-native-paper';
 import {useQuery} from 'react-query';
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
+import EmptyComponent from '../components/EmptyComponent';
 
 import {getUsers} from '../services/api';
 
+const ListIcon = (props: Pick<ListIconProps, 'color' | 'style'>) => (
+  <List.Icon {...props} icon="account-circle" />
+);
+
+//  Screen component: Default export
 const Home = () => {
   const {colors} = useTheme();
-  const {data, isLoading} = useQuery('users', getUsers);
+  const {data} = useQuery('users', getUsers);
 
-  const renderItem = ({item}) => (
+  const renderItem = ({item}: {item: any}) => (
     <List.Item
       key={'user' + item.id}
       title={item.name}
       description={item.email}
-      left={props => <List.Icon {...props} icon="account-circle" />}
+      left={ListIcon}
     />
   );
 
@@ -25,18 +31,13 @@ const Home = () => {
       <FocusAwareStatusBar barStyle="light-content" backgroundColor="#000" />
       <View>
         <List.Subheader>Users</List.Subheader>
-        {data?.data.length ? (
-          <FlatList
-            data={data.data}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            contentContainerStyle={styles.contentContainer}
-          />
-        ) : (
-          <View style={styles.statusMsg}>
-            {isLoading ? <Text>Loading</Text> : <Text>No Users found</Text>}
-          </View>
-        )}
+        <FlatList
+          data={data?.data || []}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          contentContainerStyle={styles.contentContainer}
+          ListEmptyComponent={EmptyComponent}
+        />
       </View>
     </SafeAreaView>
   );

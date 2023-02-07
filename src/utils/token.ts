@@ -9,7 +9,7 @@ const TOKEN_CACHE = {access_token: ''};
  * - set access token in cache dictionary
  * - update token in Axios instance
  */
-const setTokenCache = token => {
+const setTokenCache = (token: string) => {
   TOKEN_CACHE.access_token = token;
   updateAxiosHeaders();
 };
@@ -25,9 +25,7 @@ const updateTokenCacheFromLocal = () => {
       setTokenCache(token);
       return token;
     })
-    .catch(err => {
-      // console.log(err);
-    });
+    .catch(() => {});
 };
 
 /**
@@ -51,20 +49,16 @@ export const getToken = async () => {
  * set ACCESS TOKEN, REFRESH TOKEN to secure storage
  * set access token to cache
  */
-export const setToken = async (access_token, refresh_token) => {
+export const setToken = async (access_token: string, refresh_token: string) => {
   let promises = [
     setSecureValue('access_token', access_token),
     setSecureValue('refresh_token', refresh_token),
   ];
   Promise.all(promises)
-    .then(results => {
+    .then(() => {
       setTokenCache(access_token);
     })
-    .catch(err => {
-      // console.log('~~~~Set token catch~~~~');
-      // console.log(err);
-      // return err;
-    });
+    .catch(() => {});
 };
 
 /**
@@ -77,13 +71,11 @@ export const removeTokens = () => {
     removeSecureValue('refresh_token'),
   ];
   Promise.all(promises)
-    .then(results => {
+    .then(() => {
       setTokenCache('');
       updateAxiosHeaders();
     })
-    .catch(err => {
-      // console.log(err);
-    });
+    .catch(() => {});
 };
 
 /**
