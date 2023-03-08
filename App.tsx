@@ -1,6 +1,6 @@
 import React from 'react';
 import {Provider as PaperProvider} from 'react-native-paper';
-import {QueryClient, QueryClientProvider} from 'react-query';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {theme} from './src/Theme';
 import {AuthProvider} from './src/hooks/AuthProvider';
 import Navigation from './src/Navigation';

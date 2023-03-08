@@ -2,7 +2,7 @@ import * as React from 'react';
 import {StyleSheet, FlatList, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTheme, List, ListIconProps} from 'react-native-paper';
-import {useQuery} from 'react-query';
+import {useQuery} from '@tanstack/react-query';
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 import EmptyComponent from '../components/EmptyComponent';
 
@@ -15,7 +15,7 @@ const ListIcon = (props: Pick<ListIconProps, 'color' | 'style'>) => (
 //  Screen component: Default export
 const Home = () => {
   const {colors} = useTheme();
-  const {data} = useQuery('users', getUsers);
+  const {data} = useQuery(['users'], getUsers);
 
   const renderItem = ({item}: {item: any}) => (
     <List.Item
