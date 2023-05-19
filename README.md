@@ -4,9 +4,9 @@
   Author: saheeranas
   -->
 
-# React Native boilerplate with TypeScript, React Native Paper and React Query
+# React Native boilerplate with TypeScript, React Native Paper and TanStack/React Query
 
-A React Native starter template.
+A React Native, Material 3 starter template.
 
 <kbd>
   <img src="demo/assets/react-native-wired-boilerplate.png?raw=true">
@@ -14,18 +14,18 @@ A React Native starter template.
 
 ## Features
 
-- UI Library with React Native Paper
-- Navigation setup
+- React Native Paper UI Library
+- Navigation
 - AuthProvider wired
 - Services configured
 
 ## Dependencies
 
-- React Native **v0.71.3**
+- React Native **v0.71.8**
 - TypeScript
 - React Navigation v6
 - TanStack/React Query
-- React Native Paper v5
+- React Native Paper v5.8.0
 - Axios
 - Formik
 - React Native Vector Icons
