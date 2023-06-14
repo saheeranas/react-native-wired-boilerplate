@@ -9,6 +9,7 @@ import {
   Title,
   Text,
   Divider,
+  Appbar,
 } from 'react-native-paper';
 import {useAuth} from '../hooks/AuthProvider';
 
@@ -21,6 +22,9 @@ const Settings = () => {
     <SafeAreaView
       style={[styles.container, {backgroundColor: colors.background}]}>
       <FocusAwareStatusBar barStyle="light-content" backgroundColor="#000" />
+      <Appbar.Header>
+        <Appbar.Content title="Settings" />
+      </Appbar.Header>
       <Surface style={{backgroundColor: colors.surface}}>
         <View style={styles.menuWrp}>
           <Avatar.Text size={64} label="XD" />
