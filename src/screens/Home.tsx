@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {StyleSheet, FlatList, View} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useTheme, List, ListIconProps} from 'react-native-paper';
+import {useTheme, Appbar, List, ListIconProps} from 'react-native-paper';
 import {useQuery} from '@tanstack/react-query';
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 import EmptyComponent from '../components/EmptyComponent';
@@ -29,16 +29,16 @@ const Home = () => {
   return (
     <SafeAreaView style={[styles.container, {backgroundColor: colors.surface}]}>
       <FocusAwareStatusBar barStyle="light-content" backgroundColor="#000" />
-      <View>
-        <List.Subheader>Users</List.Subheader>
-        <FlatList
-          data={data?.data || []}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          contentContainerStyle={styles.contentContainer}
-          ListEmptyComponent={EmptyComponent}
-        />
-      </View>
+      <Appbar.Header>
+        <Appbar.Content title="Users" />
+      </Appbar.Header>
+      <FlatList
+        data={data?.data || []}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        contentContainerStyle={styles.contentContainer}
+        ListEmptyComponent={EmptyComponent}
+      />
     </SafeAreaView>
   );
 };
