@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, FlatList, View} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useTheme, Appbar, List, ListIconProps} from 'react-native-paper';
 import {useQuery} from '@tanstack/react-query';
