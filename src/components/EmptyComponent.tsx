@@ -1,10 +1,16 @@
 import * as React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-export default function EmptyComponent() {
+type EmptyComponentProps = {
+  title?: string;
+};
+
+export default function EmptyComponent({
+  title = 'No Users found',
+}: EmptyComponentProps) {
   return (
     <View style={styles.statusMsg}>
-      <Text>No Users found</Text>
+      <Text>{title}</Text>
     </View>
   );
 }
