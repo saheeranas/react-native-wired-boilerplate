@@ -21,11 +21,11 @@ A React Native, Material 3 starter template.
 
 ## Dependencies
 
-- React Native **v0.72.3**
+- React Native **v0.72.4**
 - TypeScript
 - React Navigation v6
 - TanStack/React Query
-- React Native Paper v5.8.0
+- React Native Paper v5.10.3
 - Axios
 - Formik
 - React Native Vector Icons
