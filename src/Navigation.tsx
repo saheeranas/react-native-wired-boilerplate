@@ -12,11 +12,15 @@ const Stack = createStackNavigator();
 // Screens
 import SignIn from './screens/auth/SignIn';
 import Home from './screens/Home';
+import Gallery from './screens/Gallery';
 import Settings from './screens/Settings';
 
 // Icons for Bottom Tab Navigation
 const homeIcon = ({color}: {focused: boolean; color: string}) => (
   <Icon name="home-variant-outline" size={20} color={color} />
+);
+const galleryIcon = ({color}: {focused: boolean; color: string}) => (
+  <Icon name="view-gallery-outline" size={20} color={color} />
 );
 const settingsIcon = ({color}: {focused: boolean; color: string}) => (
   <Icon name="account-settings-outline" size={20} color={color} />
@@ -36,6 +40,13 @@ export default function Navigation() {
               component={Home}
               options={{
                 tabBarIcon: homeIcon,
+              }}
+            />
+            <Tab.Screen
+              name="Gallery"
+              component={Gallery}
+              options={{
+                tabBarIcon: galleryIcon,
               }}
             />
             <Tab.Screen
