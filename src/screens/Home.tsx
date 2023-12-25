@@ -15,7 +15,7 @@ const ListIcon = (props: Pick<ListIconProps, 'color' | 'style'>) => (
 //  Screen component: Default export
 const Home = () => {
   const {colors} = useTheme();
-  const {data} = useQuery(['users'], getUsers);
+  const {data} = useQuery({queryKey: ['users'], queryFn: getUsers});
 
   const renderItem = ({item}: {item: any}) => (
     <List.Item

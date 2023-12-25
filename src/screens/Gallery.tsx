@@ -17,7 +17,7 @@ const GalleryEmptyComponent = () => <EmptyComponent title="No images loaded" />;
 //  Screen component: Default export
 const Gallery = () => {
   const {colors} = useTheme();
-  const {data} = useQuery(['galleryImages'], fetchImages);
+  const {data} = useQuery({queryKey: ['galleryImages'], queryFn: fetchImages});
 
   const renderItem = ({item}: {item: any}) => {
     let url = item.download_url.split('/').slice(0, -2).join('/');
