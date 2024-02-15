@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StyleSheet, FlatList, Image, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useTheme, Appbar} from 'react-native-paper';
+import {useTheme, Appbar, ActivityIndicator} from 'react-native-paper';
 import {useQuery} from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -17,7 +17,10 @@ const GalleryEmptyComponent = () => <EmptyComponent title="No images loaded" />;
 //  Screen component: Default export
 const Gallery = () => {
   const {colors} = useTheme();
-  const {data} = useQuery({queryKey: ['galleryImages'], queryFn: fetchImages});
+  const {data, isLoading} = useQuery({
+    queryKey: ['galleryImages'],
+    queryFn: fetchImages,
+  });
 
   const renderItem = ({item}: {item: any}) => {
     let url = item.download_url.split('/').slice(0, -2).join('/');
@@ -35,14 +38,18 @@ const Gallery = () => {
       <Appbar.Header>
         <Appbar.Content title="Gallery" />
       </Appbar.Header>
-      <FlatList
-        data={data?.data || []}
-        numColumns={2}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-        contentContainerStyle={styles.contentContainer}
-        ListEmptyComponent={GalleryEmptyComponent}
-      />
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={data?.data || []}
+          numColumns={2}
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          contentContainerStyle={styles.contentContainer}
+          ListEmptyComponent={GalleryEmptyComponent}
+        />
+      )}
     </SafeAreaView>
   );
 };
