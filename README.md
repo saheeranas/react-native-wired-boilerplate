@@ -21,7 +21,7 @@ A React Native, Material 3 starter template.
 
 ## Dependencies
 
-- React Native **v0.73**
+- React Native **v0.73.4**
 - TypeScript
 - React Navigation v6
 - TanStack/React Query
