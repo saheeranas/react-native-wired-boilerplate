@@ -25,7 +25,7 @@ A React Native, Material 3 starter template.
 - TypeScript
 - React Navigation v6
 - TanStack/React Query
-- React Native Paper v5.11.4
+- React Native Paper v5.12
 - Axios
 - Formik
 - React Native Vector Icons
