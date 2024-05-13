@@ -1,5 +1,7 @@
 import 'react-native';
 import React from 'react';
+import {describe, it} from '@jest/globals';
+
 import {render} from '../../src/utils/test-utils';
 
 import EmptyComponent from '../../src/components/EmptyComponent';
