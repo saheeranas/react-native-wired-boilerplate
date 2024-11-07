@@ -1,18 +1,27 @@
 import * as React from 'react';
 import {StyleSheet, FlatList, Image, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useTheme, Appbar, ActivityIndicator} from 'react-native-paper';
+import {useTheme, Appbar} from 'react-native-paper';
 import {useQuery} from '@tanstack/react-query';
 import axios from 'axios';
+import ContentLoader, {Rect} from 'react-content-loader/native';
 
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 import EmptyComponent from '../components/EmptyComponent';
 
 const fetchImages = () => {
-  return axios.get('https://picsum.photos/v2/list?limit=10');
+  return axios.get('https://picsum.photos/v2/list?page=2&limit=10');
 };
 
 const GalleryEmptyComponent = () => <EmptyComponent title="No images loaded" />;
+const GalleryLoadinComponent = () => (
+  <ContentLoader viewBox="0 0 320 380">
+    <Rect x="5" y="0" width="150" height="180" />
+    <Rect x="165" y="0" width="150" height="180" />
+    <Rect x="5" y="190" width="150" height="180" />
+    <Rect x="165" y="190" width="150" height="180" />
+  </ContentLoader>
+);
 
 //  Screen component: Default export
 const Gallery = () => {
@@ -39,7 +48,7 @@ const Gallery = () => {
         <Appbar.Content title="Gallery" />
       </Appbar.Header>
       {isLoading ? (
-        <ActivityIndicator />
+        <GalleryLoadinComponent />
       ) : (
         <FlatList
           data={data?.data || []}
