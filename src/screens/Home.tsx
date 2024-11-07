@@ -9,8 +9,9 @@ import {
   ActivityIndicator,
   Surface,
   Text,
+  Button,
 } from 'react-native-paper';
-import {useQuery} from '@tanstack/react-query';
+import {useQuery, useQueryClient} from '@tanstack/react-query';
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 import EmptyComponent from '../components/EmptyComponent';
 
@@ -43,19 +44,13 @@ const Home = () => {
       <Appbar.Header>
         <Appbar.Content title="Home" />
       </Appbar.Header>
-      <View style={{paddingHorizontal: 16}}>
-        <Surface style={styles.welcomCard}>
-          <Text>Welcome to</Text>
-          <Text>React Native Wired Boilerplate</Text>
-        </Surface>
-      </View>
       {isLoading ? (
         <ActivityIndicator />
       ) : (
         <FlatList
-          data={data?.data || []}
+          data={data || []}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => `user-${item.name}-${item.id}`}
           contentContainerStyle={styles.contentContainer}
           ListHeaderComponent={() => (
             <Text variant="titleMedium">Top Users</Text>
