@@ -9,7 +9,7 @@ import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 import EmptyComponent from '../components/EmptyComponent';
 
 const fetchImages = () => {
-  return axios.get('https://picsum.photos/v2/list?limit=10');
+  return axios.get('https://picsum.photos/v2/list?page=2&limit=10');
 };
 
 const GalleryEmptyComponent = () => <EmptyComponent title="No images loaded" />;
