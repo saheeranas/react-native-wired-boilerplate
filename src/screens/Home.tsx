@@ -7,15 +7,27 @@ import {
   List,
   ListIconProps,
   ActivityIndicator,
-  Surface,
   Text,
-  Button,
 } from 'react-native-paper';
-import {useQuery, useQueryClient} from '@tanstack/react-query';
+import {useQuery} from '@tanstack/react-query';
+import ContentLoader, {Rect, Circle} from 'react-content-loader/native';
+
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
 import EmptyComponent from '../components/EmptyComponent';
 
+// Services
 import {getUsers} from '../services/api';
+
+const LoadingSkeletonComponent = () => (
+  <ContentLoader>
+    <Circle x="32" y="12" r="12" fill="#eee" />
+    <Rect x="70" y="0" width="80" height="12" />
+    <Rect x="70" y="16" width="160" height="12" />
+    <Circle x="32" y="59" r="12" fill="#eee" />
+    <Rect x="70" y="47" width="80" height="12" />
+    <Rect x="70" y="63" width="160" height="12" />
+  </ContentLoader>
+);
 
 const ListIcon = (props: Pick<ListIconProps, 'color' | 'style'>) => (
   <List.Icon {...props} icon="account-circle" />
@@ -44,21 +56,15 @@ const Home = () => {
       <Appbar.Header>
         <Appbar.Content title="Home" />
       </Appbar.Header>
+
       {isLoading ? (
-        <ActivityIndicator />
+        <LoadingSkeletonComponent />
       ) : (
         <FlatList
-          data={data || []}
+          data={data}
           renderItem={renderItem}
           keyExtractor={item => `user-${item.name}-${item.id}`}
           contentContainerStyle={styles.contentContainer}
-          ListHeaderComponent={() => (
-            <Text variant="titleMedium">Top Users</Text>
-          )}
-          ListHeaderComponentStyle={{
-            paddingHorizontal: 16,
-            paddingVertical: 8,
-          }}
           ListEmptyComponent={EmptyComponent}
         />
       )}
