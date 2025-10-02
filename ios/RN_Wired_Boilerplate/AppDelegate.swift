@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "RnDiffApp",
+      withModuleName: "RN_Wired_Boilerplate",
       in: window,
       launchOptions: launchOptions
     )
