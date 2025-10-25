@@ -21,9 +21,9 @@ A React Native, Material 3 starter template.
 
 ## Dependencies
 
-- React Native **v0.76.3**
+- React Native **v0.82.0**
 - TypeScript
-- React Navigation v6
+- React Navigation v7
 - TanStack/React Query
 - React Native Paper v5.12
 - Axios
