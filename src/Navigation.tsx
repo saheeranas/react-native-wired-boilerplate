@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from "react-native"
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -38,7 +39,14 @@ export default function Navigation() {
         {!user.access_token ? (
           <OutsideStack />
         ) : (
-          <Tab.Navigator barStyle={{backgroundColor: '#f2f0e0'}}>
+          <Tab.Navigator 
+            screenOptions={{
+              tabBarStyle: {
+                backgroundColor: "#f2f0e0",
+              },
+              headerStyle: { height: Platform.OS == 'ios' ? 120 : 50},
+            }}
+          >
             <Tab.Screen
               name="Home"
               component={Home}

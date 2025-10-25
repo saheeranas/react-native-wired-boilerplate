@@ -29,7 +29,7 @@ const initialValues: UserPayload = {
 
 const Schema = Yup.object().shape({
   name: Yup.string().min(1, 'Too Short!').required('Required'),
-  email: Yup.string().min(1, 'Too Short!').required('Required'),
+  email: Yup.string().email().min(1, 'Too Short!').required('Required'),
 });
 
 // Add Screen component
@@ -58,14 +58,11 @@ export default function Add({navigation}) {
   });
 
   return (
-    <SafeAreaView style={[styles.container, {backgroundColor: colors.surface}]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.container, {backgroundColor: colors.surface}]}>
       <FocusAwareStatusBar
         barStyle="light-content"
         backgroundColor={colors.primary}
       />
-      <Appbar.Header>
-        <Appbar.Content title="Create User" />
-      </Appbar.Header>
 
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.formContainer}>
@@ -101,6 +98,8 @@ export default function Add({navigation}) {
                     mode="outlined"
                     label="Email"
                     style={styles.input}
+                    inputMode="email"
+                    autoCapitalize="none"
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
                     onSubmitEditing={submitButtonRef?.current?.focus}
