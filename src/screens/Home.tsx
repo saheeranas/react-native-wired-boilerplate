@@ -48,14 +48,11 @@ const Home = () => {
   );
 
   return (
-    <SafeAreaView style={[styles.container, {backgroundColor: colors.surface}]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.container, {backgroundColor: colors.surface}]}>
       <FocusAwareStatusBar
         barStyle="light-content"
         backgroundColor={colors.primary}
       />
-      <Appbar.Header>
-        <Appbar.Content title="Home" />
-      </Appbar.Header>
 
       {isLoading ? (
         <LoadingSkeletonComponent />

@@ -42,11 +42,8 @@ const Gallery = () => {
   };
 
   return (
-    <SafeAreaView style={[styles.container, {backgroundColor: colors.surface}]}>
+    <SafeAreaView edges={['bottom', 'left', 'right']} style={[styles.container, {backgroundColor: colors.surface}]}>
       <FocusAwareStatusBar barStyle="light-content" backgroundColor="#000" />
-      <Appbar.Header>
-        <Appbar.Content title="Gallery" />
-      </Appbar.Header>
       {isLoading ? (
         <GalleryLoadinComponent />
       ) : (
