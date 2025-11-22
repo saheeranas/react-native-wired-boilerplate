@@ -41,13 +41,13 @@
     "@react-native-community/cli-platform-android": "^20.0.0",
     "@react-native-community/cli-platform-ios": "^20.0.0",
     "@react-native/babel-preset": "^0.82.0",
-    "@react-native/eslint-config": "0.81.4",
+    "@react-native/eslint-config": "0.82.0",
     "@react-native/metro-config": "^0.82.0",
-    "@react-native/typescript-config": "0.81.4",
+    "@react-native/typescript-config": "0.82.0",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^12.8.1",
     "@types/jest": "^29.5.13",
-    "@types/react": "^19.1.0",
+    "@types/react": "^19.1.1",
     "@types/react-native-vector-icons": "^6.4.18",
     "@types/react-test-renderer": "^19.1.0",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
@@ -58,7 +58,7 @@
     "prettier": "2.8.8",
     "react-test-renderer": "19.1.1",
     "typescript": "^5.8.3",
-    "yarn-audit-fix": "^10.1.0"
+    "yarn-audit-fix": "^10.1.1"
   },
   "engines": {
     "node": ">=20"
