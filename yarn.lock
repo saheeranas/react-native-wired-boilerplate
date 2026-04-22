@@ -6074,19 +6074,19 @@ react-native-keychain@^9.2.2:
   resolved "https://registry.yarnpkg.com/react-native-keychain/-/react-native-keychain-9.2.3.tgz#d21d88a39847c8910fe1e18f8280a4a32a24a6bc"
   integrity sha512-dbn50fk4HLr4JQ71X3j6ZSTbKv+G9s85Zv9cE2na7k7KGn1j+wxjqGTE3wG+WKB3nNEylgu/KXR99mtsC/hpRQ==
 
-react-native-paper@^5.12.5:
-  version "5.14.5"
-  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-5.14.5.tgz#7995a2f8171c8355c1cb55c81a6d2074a7dd5abb"
-  integrity sha512-eaIH5bUQjJ/mYm4AkI6caaiyc7BcHDwX6CqNDi6RIxfxfWxROsHpll1oBuwn/cFvknvA8uEAkqLk/vzVihI3AQ==
+react-native-paper@^5.15.1:
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-5.15.1.tgz#9589bbf99f5a933d229a76f4059ae9d6b0a0e90b"
+  integrity sha512-qT3vtjWch7277JiyacOukPMmyJjgAeEXMZAl/1KdCFYGrarOVoVw5ElUcUCYwPdq9ReMyVZSX77Sr+7ELmSFEg==
   dependencies:
     "@callstack/react-theme-provider" "^3.0.9"
     color "^3.1.2"
     use-latest-callback "^0.2.3"
 
-react-native-safe-area-context@^5.6.0:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-5.6.2.tgz#283e006f5b434fb247fcb4be0971ad7473d5c560"
-  integrity sha512-4XGqMNj5qjUTYywJqpdWZ9IG8jgkS3h06sfVjfw5yZQZfWnRFXczi0GnYyFyCc2EBps/qFmoCH8fez//WumdVg==
+react-native-safe-area-context@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-5.7.0.tgz#035699d5ec17fefb98cc1fa44a9ec852c7d530d0"
+  integrity sha512-/9/MtQz8ODphjsLdZ+GZAIcC/RtoqW9EeShf7Uvnfgm/pzYrJ75y3PV/J1wuAV1T5Dye5ygq4EAW20RoBq0ABQ==
 
 react-native-screens@^4.11.1:
   version "4.18.0"
