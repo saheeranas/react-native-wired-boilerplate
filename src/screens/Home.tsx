@@ -8,6 +8,9 @@ import {
   ListIconProps,
   ActivityIndicator,
   Text,
+  Chip,
+  MD3Colors,
+  Avatar
 } from 'react-native-paper';
 import {useQuery} from '@tanstack/react-query';
 import ContentLoader, {Rect, Circle} from 'react-content-loader/native';
@@ -30,7 +33,13 @@ const LoadingSkeletonComponent = () => (
 );
 
 const ListIcon = (props: Pick<ListIconProps, 'color' | 'style'>) => (
-  <List.Icon {...props} icon="account-circle" />
+  <View style={{ justifyContent: "center", alignItems: "center", paddingLeft: 12 }}>
+    <Avatar.Text size={36} label="XD" />
+  </View>
+);
+
+const RightSection = () => (
+  <List.Icon color={MD3Colors.tertiary70} icon="chevron-right" />
 );
 
 //  Screen component: Default export
@@ -44,6 +53,9 @@ const Home = () => {
       title={item.name}
       description={item.email}
       left={ListIcon}
+      right={RightSection}
+      style={styles.listItem}
+      titleStyle={styles.listItemTitle}
     />
   );
 
@@ -54,6 +66,8 @@ const Home = () => {
         backgroundColor={colors.primary}
       />
 
+
+
       {isLoading ? (
         <LoadingSkeletonComponent />
       ) : (
@@ -63,6 +77,7 @@ const Home = () => {
           keyExtractor={item => `user-${item.name}-${item.id}`}
           contentContainerStyle={styles.contentContainer}
           ListEmptyComponent={EmptyComponent}
+          ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
         />
       )}
     </SafeAreaView>
@@ -76,7 +91,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
+    paddingTop: 15,
     paddingBottom: 50,
+    paddingHorizontal: 12
   },
   statusMsg: {
     flex: 1,
@@ -90,4 +107,6 @@ const styles = StyleSheet.create({
     height: 140,
     justifyContent: 'center',
   },
+  listItem: { borderWidth: 1, borderColor: "#ccc", borderRadius: 16, backgroundColor: "#fff" },
+  listItemTitle: { marginBottom: 10, fontSize: 18 }
 });
