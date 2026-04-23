@@ -42,13 +42,13 @@ export default function Navigation() {
           <Tab.Navigator 
             screenOptions={{
               tabBarStyle: {
-                backgroundColor: "#f2f0e0",
+                backgroundColor: "#f8fafc",
               },
               headerStyle: { height: Platform.OS == 'ios' ? 120 : 50},
             }}
           >
             <Tab.Screen
-              name="Home"
+              name="Users"
               component={Home}
               options={{
                 tabBarIcon: homeIcon,
