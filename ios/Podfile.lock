@@ -1860,7 +1860,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RNScreens (4.18.0):
+  - RNScreens (4.25.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1882,9 +1882,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
-    - RNScreens/common (= 4.18.0)
+    - RNScreens/common (= 4.25.0)
     - Yoga
-  - RNScreens/common (4.18.0):
+  - RNScreens/common (4.25.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1907,7 +1907,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RNSVG (15.15.4):
+  - RNSVG (15.15.5):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1928,9 +1928,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
-    - RNSVG/common (= 15.15.4)
+    - RNSVG/common (= 15.15.5)
     - Yoga
-  - RNSVG/common (15.15.4):
+  - RNSVG/common (15.15.5):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2295,8 +2295,8 @@ SPEC CHECKSUMS:
   ReactNativeDependencies: 180b4050459782c5feac88057c68468cd53c15e1
   RNGestureHandler: d337f2cef0a08431e44d30738f97b4d22cd24add
   RNKeychain: 8955c9c09edf7dbfd708538ae0f40f3799f2e21e
-  RNScreens: f5dcb048ce454032efb873adbc502f64e0a85f8b
-  RNSVG: 04044c3abcf177fd674a1a3d13097efa1adebcbe
+  RNScreens: a6a509f05ea74d50abab8c21b319b33cfca1ea1c
+  RNSVG: 0e52210d4d43165e7e2cf9c890a9848b27e513ac
   RNVectorIcons: 97f26211c07d69e45b189f9dd0dbbe5e2d2b0b92
   Yoga: 04bb4bfeb02c0000b940c1e6e89e856cd8de5a71
 
