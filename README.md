@@ -4,9 +4,9 @@
   Author: saheeranas
   -->
 
-# React Native boilerplate with TypeScript, React Native Paper and TanStack/React Query
+# React Native boilerplate with React Native Paper and TanStack/React Query 
 
-A React Native, Material 3 starter template.
+Production ready React Native Boilerplate built with TypeScript, React Native Paper, and TanStack React Query. This starter kit is fully "wired" with a robust AuthProvider, Axios for API calls, and Formik for forms, saving you weeks of setup time. Based on the latest stable React Native version, it provides a clean, scalable foundation for building high quality Material 3 mobile apps with state management and navigation ready to go.
 
 <kbd>
   <img src="demo/assets/react-native-wired-boilerplate.png?raw=true">
